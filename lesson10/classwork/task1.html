@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classwork1</title>
+</head>
+<body>
+
+<!--Задача 1.-->
+
+<!--Создайте страницу с кнопкой. Создайте код, который загрузит на страницу картинку img.jpg -->
+<!--(файл находитя в папке classwork) асинхронно через 5 секунд после нажатия на кнопку.-->
+
+    <button id="load">Download</button>
+    <div id="img"></div>
+
+    <script>
+
+        var img = document.getElementById('img');
+
+        document.getElementById('load').addEventListener('click', function () {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'img.jpg');
+            xhr.send();
+
+            setTimeout(function () {
+              var image = new Image();
+              image.src = xhr.responseURL;
+              img.appendChild(image);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

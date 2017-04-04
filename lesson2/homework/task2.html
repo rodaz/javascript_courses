@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework2</title>
+</head>
+<body>
+<!--Задача 2.-->
+
+<!--Создайте функцию strCount, которая принимает один аргумент (объект) -->
+<!--и считает количество свойств строкового типа.-->
+
+<script>
+    function strCount(obj) {
+      var cnt = 0;
+      for(var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          if(typeof obj[key] == 'object') {
+            cnt += strCount(obj[key]);
+          }
+
+          if(typeof obj[key] == 'string') {
+            cnt++;
+          }
+        }
+      }
+      return cnt;
+    }
+
+    alert(strCount({
+      first: "1",
+      second: "2",
+      third: false,
+      fourth: ["anytime",2,3,4],
+      fifth:  null
+    }));
+</script>
+</body>
+</html>

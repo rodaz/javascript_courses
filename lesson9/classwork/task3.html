@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classwork3</title>
+</head>
+<body>
+<!--Задача 3.-->
+
+<!--Создайте поле ввода. При помощи событий клавиатуры сделайте так, чтобы в поле можно было вводить только цифры.-->
+
+    <input type="text" id="input">
+
+    <script>
+        document.getElementById('input').addEventListener('keypress', function (e) {
+          if (event.key < '0' || event.key > '9') event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

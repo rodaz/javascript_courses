@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classwork1</title>
+</head>
+<body>
+    <h1>Задача 1.</h1>
+
+    <p>Каков будет результат выполнения этого кода?</p>
+    <pre>
+        var value = 0;
+        function f() {
+            if (1) {
+                value = true;
+            } else {
+                var value = false;
+            }
+            alert( value );
+        }
+        f();
+    </pre>
+    <p>Изменится ли внешняя переменная <i>value</i> ? Как изменится результат, если из строки</p>
+    <pre>  var value = false</pre>
+    <p>убрать ключевое слово var?</p>
+
+    <h2>Решение:</h2>
+    <p>В результате мы увидим <i>true</i>.</p>
+    <p>Внешняя переменная не изменится</p>
+    <p>Если убрать <i>var</i> результат останется тем же, но внешняя переменная изменится</p>
+</body>
+</html>

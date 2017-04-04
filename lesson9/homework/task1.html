@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework1</title>
+</head>
+<body>
+<!--Задача 1.-->
+
+<!--Сделайте список, элементы которого можно выделять кликом. Используйте для решения данной задачи свойство e.target.-->
+
+<ul id="list">
+    <li>elem1</li>
+    <li>elem2</li>
+    <li>elem3</li>
+    <li>elem4</li>
+    <li>elem5</li>
+</ul>
+
+<script>
+    document.getElementById('list').addEventListener('click', function(e) {
+      var rng = document.createRange();
+      rng.selectNode(e.target);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(rng);
+    });
+</script>
+</body>
+</html>

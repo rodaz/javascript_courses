@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classwork2</title>
+</head>
+<body>
+<!--Задача 2.-->
+
+<!--Создайте код, который загрузит файл phones.json и выведет все названия телефонов из него в виде списка.-->
+
+    <button id="load">Загрузить</button>
+
+    <ul id="list"></ul>
+
+    <script>
+
+        var list = document.getElementById('list');
+
+        document.getElementById('load').addEventListener('click', function () {
+
+
+
+          var xhr = new XMLHttpRequest();
+
+          xhr.open('GET', 'phones.json');
+
+          xhr.send();
+
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState != 4) return;
+
+            if (xhr.status == 200) {
+              var phones = JSON.parse(xhr.responseText);
+
+              phones.forEach(function(phone) {
+                var li = list.appendChild(document.createElement('li'));
+                li.innerHTML = phone.name;
+              });
+            }
+          }
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork 1</title>
+</head>
+<body>
+    <pre>
+    Задание:
+
+        Есть дерево из тегов ul и li.
+
+        Напишите код, который для каждого элемента li выведет:
+
+            Текст непосредственно в нём указанный (без подразделов).
+            Количество всех вложенных в него элементов li.
+    </pre>
+
+    <ul>
+        <li>Животные
+            <ul>
+                <li>Млекопитающие
+                    <ul>
+                        <li>Коровы</li>
+                        <li>Ослы</li>
+                        <li>Собаки</li>
+                        <li>Тигры</li>
+                    </ul>
+                </li>
+                <li>Другие
+                    <ul>
+                        <li>Змеи</li>
+                        <li>Птицы</li>
+                        <li>Ящерицы</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Рыбы
+            <ul>
+                <li>Аквариумные
+                    <ul>
+                        <li>Гуппи</li>
+                        <li>Скалярии</li>
+                    </ul>
+
+                </li>
+                <li>Морские
+                    <ul>
+                        <li>Морская форель</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <pre>
+    Решение:
+
+        var lis = document.getElementsByTagName('li');
+        for (var i = 0; i < lis.length; i++) {
+          document.write('Text: ' + lis[i].innerText + ' br ');
+          document.write('вложенных li = ' + lis[i].getElementsByTagName('li').length + 'br br');
+        }
+
+    </pre>
+    <script>
+        var lis = document.getElementsByTagName('li');
+
+        for (var i = 0; i < lis.length; i++) {
+          document.write('Text: ' + lis[i].innerText + ' <br> ');
+          document.write('вложенных li = ' + lis[i].getElementsByTagName('li').length + '<br><br>');
+        }
+    </script>
+</body>
+</html>

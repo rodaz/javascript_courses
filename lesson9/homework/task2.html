@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework2</title>
+
+    <style>
+
+        body {
+            background-color: white;
+        }
+
+        #circle {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 100px;
+            display: inline-block;
+        }
+
+        #border {
+            width: 130px;
+            height: 130px;
+            background: white;
+            border-radius: 65px;
+            line-height: 130px;
+            text-align: center;
+            position: absolute;
+            z-index: 999;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+<!--Задача 2.-->
+
+<!--Создайте круг красного цвета с надписью "Скидка". Когда курсор пользователя будет приближаться к ней,-->
+<!--"Скидка" должна от него "убегать", не давая пользователю нажать на красный круг. Если круг будет-->
+<!--выйдет за одну из сторон экрана, то он должен, появится с противоположной стороны.-->
+<div id="border">
+    <div id="circle">
+        Скидка
+    </div>
+</div>
+
+<script>
+
+    var circle = document.getElementById('border');
+
+    circle.addEventListener('mouseover', function () {
+
+      var shiftTop = 150;
+      var shiftLeft = 150;
+
+      var posTop = +circle.style.top;
+      var posLeft = +circle.style.left;
+
+
+      var top = Math.floor(Math.random() * (500 - 200)) + 200;
+      var left = Math.floor(Math.random() * (500 - 200)) + 200;
+
+      if (top+posTop > document.documentElement.clientHeight-130) {
+        shiftTop = -top;
+      } else {
+        shiftTop = top;
+      }
+
+      if (left+posLeft > document.documentElement.clientWidth-130) {
+        shiftLeft = -left;
+      } else {
+        shiftLeft = left;
+      }
+
+      circle.style.top = shiftTop+'px';
+      circle.style.left = shiftLeft+'px';
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classwork2</title>
+</head>
+<body>
+<!--Задача 2-->
+
+<!--Превратите объект leader из примера ниже в JSON:-->
+
+<!--var leader = {-->
+<!--    name: "Василий Иванович",-->
+<!--    age: 35-->
+<!--};-->
+<!--После этого конвертируйте получившуюся строку обратно в объект.-->
+
+<script>
+  var leader = {
+    name: "Василий Иванович",
+    age: 35
+  };
+
+  //into JSON
+  leader = JSON.stringify(leader);
+
+  //into JS object
+  leader = JSON.parse(leader);
+
+</script>
+</body>
+</html>

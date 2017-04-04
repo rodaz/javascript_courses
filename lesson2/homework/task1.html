@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework1</title>
+</head>
+<body>
+<!--Задача 1.-->
+
+<!--Напишите функцию, которая принимает 1 параметр. При первом вызове она его запоминает, -->
+<!--при втором - суммирует переданный параметр с параметром, переданным при предыдущем вызове.-->
+
+<script>
+    var s = 0;
+
+    function sum(num) {
+      return s+=num;
+    }
+
+    alert(sum(3));
+    alert(sum(5));
+    alert(sum(228));
+</script>
+</body>
+</html>

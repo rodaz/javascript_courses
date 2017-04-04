@@ -1,0 +1,44 @@
+<h1>Задача 2</h1>
+<h2>
+    Перепишите с использованием встроенного метода bind:
+</h2>
+<pre>
+    function bind(func, context) {
+      return function() {
+        return func.apply(context, arguments);
+      };
+    }
+
+    var user = {
+      firstName: "Вася",
+      sayHi: function() {
+        alert( this.firstName );
+      }
+    };
+
+    var f = bind(user.sayHi, user);
+    f();
+</pre>
+<h2>Результат:</h2>
+<pre>
+    var user = {
+      firstName: "Вася",
+      sayHi: function() {
+        alert( this.firstName );
+      }
+    };
+
+    var f = user.sayHi.bind(user);
+    f();
+</pre>
+<script>
+  var user = {
+    firstName: "Вася",
+    sayHi: function() {
+      alert( this.firstName );
+    }
+  };
+
+  var f = user.sayHi.bind(user);
+  f();
+</script>

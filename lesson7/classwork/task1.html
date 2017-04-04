@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classwork1</title>
+</head>
+<body>
+<!--Задача 1.-->
+
+<!--Создайте страницу. Разместите на ней произвольное количеством элементов. -->
+<!--Разработайте сценарий, который будет по очереди перемещать span с текстом и интервалом в 400мс:-->
+
+<!--Перед элементом.-->
+<!--Внутри элемента перед тектом-->
+<!--Внетри элемента после текста.-->
+<!--После элемента.-->
+
+    <div>Elem 1</div>
+    <div>Elem 2</div>
+    <div>Elem 3</div>
+
+<script>
+    var divs = document.getElementsByTagName('div');
+
+    var span = document.createElement('span');
+    span.innerText = 'INSERT TEXT';
+
+    var places = ['beforeBegin', 'afterBegin', 'beforeEnd', 'afterEnd'];
+
+    var i = 0,
+        k = 0;
+
+    var interval = setInterval(function () {
+
+      divs[k].insertAdjacentElement(places[i++], span);
+
+      if (k >= divs.length-1 && i >= places.length) {
+        clearInterval(interval);
+      }
+
+      if (i >= places.length) {
+        i = 0;
+        k++;
+      }
+    }, 400);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<h1>Задача 2</h1>
+<h2>
+    Напишите функцию compose, которая принимает значение в качестве основного параметра и произвольное количество
+    функций в качестве дополнительных параметров.
+    Функция должна вернуть значение, полученное путем использования основного параметра как аргумента для функций,
+    переданных ей в качестве дополнительных аргументов. Например:
+</h2>
+<pre>
+    var doubleTheValue = function(val) { return val * 2; }
+    var addOneToTheValue = function(val) { return val + 1; }
+    compose(5, doubleTheValue) //должно вернуться значение 10
+    compose(5, doubleTheValue, addOneToTheValue) // должно вернуться значение  11
+</pre>
+<h2>Если функции передан только один параметр, она должна вернуть его значение.</h2>
+<h2>Решение:</h2>
+<pre>
+    function compose(param) {
+      var funcs = [].slice.apply(arguments, [1]);
+      funcs.forEach(function (func) {
+        param = func(param);
+      });
+      return param;
+    }
+</pre>
+<script>
+    function compose(param) {
+      var funcs = [].slice.apply(arguments, [1]);
+      funcs.forEach(function (func) {
+        param = func(param);
+      });
+      return param;
+    }
+</script>

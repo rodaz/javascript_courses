@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classwork2</title>
+</head>
+<body>
+
+    <!--Задача 2.-->
+    <!---->
+    <!--Создайте страницу. Разместите на странице поле ввода, кнопку и пустой div.-->
+    <!--Создайте сценарий, который при нажатии на кнопку будет записывать содержимое поля ввода в пустой div.-->
+
+    <input id="src" type="text">
+    <button id="btn">Button</button>
+    <div id="dest"></div>
+
+    <script>
+        var src = document.getElementById('src');
+        var btn = document.getElementById('btn');
+        var dest = document.getElementById('dest');
+
+        btn.addEventListener('click', function () {
+          dest.innerText = src.value;
+        });
+    </script>
+</body>
+</html>

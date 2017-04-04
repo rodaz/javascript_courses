@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classwork3</title>
+</head>
+<body>
+<!--Задача 3-->
+
+<!--Напишите функцию, которая принимает один аргумент и возвращает его тип данных. -->
+<!--Выполните обработку исключений в случае передачи двух и больше аргументов.-->
+
+<script>
+    function temp(a) {
+      try {
+        if(arguments.length >= 2) {
+          throw new Error('Слишком много аргументов');
+        }
+      } catch (e) {
+        alert(e.message);
+      }
+      return typeof a;
+    }
+</script>
+</body>
+</html>

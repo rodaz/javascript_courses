@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework3</title>
+</head>
+<body>
+<!--Задача 3.-->
+
+<!--Разработайте страницу с двумя полями ввода и кнопкой. Пользователь должен вводить в поля ввода -->
+<!--целочисленный значения, а нажатие по кнопке должно приводить к асинхронному запросу на сервер. -->
+<!--Запрашивать следует обработчик CalcHandler.ashx, который находиться вместе с задачей в папке Homework,-->
+<!--обработчик принимает два post параметра с именами ‘a’ и ‘b'. Результат который возвращает обработчик-->
+<!--выведите на страницу (рекомендуется выполнять задачу в Visual Studio).-->
+
+<input id="num1" type="text">
+<input id="num2" type="text">
+<button id="load">Load</button>
+
+<script>
+    document.getElementById('load').addEventListener('click', function () {
+      var num1 = document.getElementById('num1');
+      var num2 = document.getElementById('num2');
+
+      var xhr = new XMLHttpRequest();
+      
+      xhr.onload = function () {
+        alert(xhr.responseText);
+      };
+      xhr.open('POST', 'CalcHandler.ashx');
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.send('a='+num1.value+'&b='+num2.value);
+
+    });
+</script>
+</body>
+</html>

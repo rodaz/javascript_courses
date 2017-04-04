@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework2</title>
+</head>
+<body>
+<!--Задача 2.-->
+
+<!--Модифицируйте код предыдущего задания так, чтобы максимальное время обработки запроса не превышало 20 секунд-->
+<!--и при первышении этого времени запрос был отменен, а пользователь видел на экране сообщение об ошибке.-->
+
+<button id="loadPages">Load</button>
+<div id="page1"></div>
+<div id="page2"></div>
+
+<script>
+
+  document.getElementById('loadPages').addEventListener('click', function () {
+    var xhr1 = new XMLHttpRequest();
+    xhr1.timeout = 20000;
+    xhr1.onload = function () {
+      document.getElementById('page1').innerHTML = xhr1.responseText;
+    };
+    xhr1.ontimeout = function () {
+      alert('Превышено время ожидания ответа для первого файла');
+    };
+    xhr1.open('GET', 'task1_1.html');
+    xhr1.send();
+
+    var xhr2 = new XMLHttpRequest();
+    xhr2.timeout = 20000;
+    xhr2.onload = function () {
+      document.getElementById('page2').innerHTML = xhr2.responseText;
+    };
+    xhr2.ontimeout = function () {
+      alert('Превышено время ожидания ответа для второго файла');
+    };
+    xhr2.open('GET', 'task1_2.html');
+    xhr2.send();
+  });
+
+
+</script>
+</body>
+</html>

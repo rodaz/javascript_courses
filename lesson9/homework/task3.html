@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework3</title>
+    <style>
+        #target {
+            background-color: aqua;
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            z-index: 999;
+            top: 50px;
+            left: 5px;
+        }
+    </style>
+</head>
+<body>
+<!--Задача 3.-->
+
+<!--Создайте страницу с двумя полями ввода, кнопкой и элементом div с шириной и высотой 50px. -->
+<!--Создайте сценарий, который по нажатию на кнопку будет перемещать div в координаты, указанные в полях ввода. -->
+<!--В случае, если при нажатии кнопки хотя бы одно из полей ввода не заполнено, пользователь должен-->
+<!--получить предупреждение, а событие click должно быть отменено.-->
+
+<input id="top" type="text">
+<input id="left" type="text">
+<button id="go">GO</button>
+<div id="target"></div>
+
+<script>
+    var topCoord = document.getElementById('top');
+    var leftCoord = document.getElementById('left');
+    var go = document.getElementById('go');
+    var target = document.getElementById('target');
+
+    go.addEventListener('click', function () {
+      if (topCoord.value && leftCoord.value) {
+        target.style.top = topCoord.value+'px';
+        target.style.left = leftCoord.value+'px';
+      } else {
+        alert('Заполните оба поля!');
+        return false;
+      }
+
+    });
+</script>
+</body>
+</html>

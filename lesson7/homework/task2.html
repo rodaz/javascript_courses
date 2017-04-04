@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework2</title>
+
+    <style>
+        div {
+            position: fixed;
+        }
+        a {
+            position: absolute;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<!--Задача 2.-->
+
+<!--Создайте функцию positionAt(anchor, position, elem), которая позиционирует элемент elem,-->
+<!--в зависимости от значения аргумента position: сверху ("top"), справа ("right") или снизу-->
+<!--("bottom"). Функция должна проводить позиционирование относительно элемента anchor.-->
+<!--Для решения данной задачи Вам понадобится создать элемент anchor (тег а) и elem (тег div).-->
+
+
+<script>
+
+    var anchor = document.createElement('a');
+    anchor.innerHTML = 'Anchor';
+    var elem = document.createElement('div');
+    elem.innerHTML = 'Elem';
+    document.body.appendChild(anchor);
+    document.body.appendChild(elem);
+
+
+
+    function positionAt(anchor, position, elem) {
+
+      var coords = anchor.getBoundingClientRect();
+      switch (position) {
+        case 'right':
+          elem.style.left = coords.right+'px';
+          elem.style.top=coords.top+'px';
+          break;
+        case 'top':
+          elem.style.bottom=document.documentElement.clientHeight - coords.top + 'px';
+          elem.style.left=coords.left + 'px';
+          break;
+        case 'bottom':
+          elem.style.top=coords.bottom+'px';
+          elem.style.left=coords.left+'px';
+      }
+    }
+
+    positionAt(anchor, 'right', elem);
+//    positionAt(anchor, 'top', elem);
+//    positionAt(anchor, 'bottom', elem);
+</script>
+</body>
+</html>

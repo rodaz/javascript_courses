@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework3</title>
+</head>
+<body>
+
+    <!--Задача 3.-->
+
+    <!--Создайте страницу-калькулятор. Разместите на странице два поля ввода и кнопки для арифметических операций над данными -->
+    <!--введенными в поля ввода. Реализуйте данную страницу двумя способами – с использованием модели DOM Level 0 -->
+    <!--(через атрибуты) и DOM Level 2.-->
+
+    <input id="first" type="text">
+    <input id="second" type="text">
+    <button id="plus" onclick="add()">+</button>
+    <button id="minus" onclick="sub()">-</button>
+    <button id="star" onclick="mul()">*</button>
+    <button id="slash" onclick="div()">/</button>
+
+    <script>
+        var a = document.getElementById('first');
+        var b = document.getElementById('second');
+
+        document.getElementById('plus').addEventListener('click', function () {
+          add();
+        });
+
+        document.getElementById('minus').addEventListener('click', function () {
+          sub();
+        });
+
+        document.getElementById('star').addEventListener('click', function () {
+          mul();
+        });
+
+        document.getElementById('slash').addEventListener('click', function () {
+          div();
+        });
+
+        function add() {
+          a.value = +a.value + +b.value;
+          b.value = '';
+        }
+
+        function sub() {
+          a.value = +a.value - +b.value;
+          b.value = '';
+        }
+
+        function mul() {
+          a.value = +a.value * +b.value;
+          b.value = '';
+        }
+
+        function div() {
+          a.value = +a.value / +b.value;
+          b.value = '';
+        }
+    </script>
+
+<script></script>
+</body>
+</html>

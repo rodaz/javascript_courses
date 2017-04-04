@@ -1,0 +1,16 @@
+<h1>Задача 1</h1>
+<h2>
+    Представьте, что в JavaScript нет метода call, есть только метод apply.
+    Используя apply, напишите метод call.
+</h2>
+<h2>Решение:</h2>
+<pre>
+    function call(func, ctx) {
+      return func.apply(ctx, arguments[2]);
+    }
+</pre>
+<script>
+    function call(func, ctx) {
+      return func.apply(ctx, arguments[2]);
+    }
+</script>

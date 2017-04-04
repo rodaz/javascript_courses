@@ -1,0 +1,21 @@
+<h1>Задача 3</h1>
+<h2>
+    Напишите функцию joinArgs, которая выводит свои аргументы, разделенные символом ‘*’ на экран в виде строки.
+    Используйте прием “одалживания методов”. У вас должно получиться:
+</h2>
+<pre>
+    joinArgs(1,2,3) // 1*2*3
+    joinArgs('hello', 'world', '!') // hello*world*!
+</pre>
+<h2>Результат:</h2>
+<pre>
+    function joinArgs() {
+      alert([].join.call(arguments, '*'));
+    }
+</pre>
+<script>
+  function joinArgs() {
+    alert([].join.call(arguments, '*'));
+  }
+  joinArgs(1, 2, 3);
+</script>

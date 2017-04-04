@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework3</title>
+</head>
+<body>
+    <!--Задача 3.-->
+    <!---->
+    <!--Напишите функцию, которая складывает числа при двойном вызове.-->
+    <script>
+      function add(a) {
+        return function(b) {
+          return a+b;
+        }
+      }
+
+      alert(add(3)(4));
+    </script>
+</body>
+</html>

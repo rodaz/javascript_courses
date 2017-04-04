@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework1</title>
+</head>
+<body>
+    <!--Задача 1.-->
+
+    <!--Создайте регистрационную форму: логин, пароль, телефон и кнопка "Отправить". По нажатию на кнопку "Отправить", -->
+    <!--проверьте корректность ввода данных с помощью JavaScript.-->
+
+    <!--Логин - не должен содержать цифры.-->
+    <!--Пароль - не дожен содержать знак $.-->
+    <!--Телефон - должен содержать только цифры.-->
+    <!--Закрасьте фон поля ввода в красный цвет, если были введены неправильные данные.-->
+
+    <!--Используйте для решение данной задачи методы для работы со строками или регулярные выражения-->
+
+    <form onsubmit="return false">
+        <label for="login">Логин</label>
+        <input type="text" id="login">
+        <label for="pass">Пароль</label>
+        <input type="text" id="pass">
+        <label for="phone">Телефон</label>
+        <input type="text" id="phone">
+        <button id="btn">Отправить</button>
+    </form>
+
+    <script>
+        var btn = document.getElementById('btn');
+        var login = document.getElementById('login');
+        var pass = document.getElementById('pass');
+        var phone = document.getElementById('phone');
+
+        //БЕЗ регулярных выражений
+        /*
+        btn.addEventListener('click', function () {
+
+          login.style.backgroundColor = 'white';
+          pass.style.backgroundColor = 'white';
+          phone.style.backgroundColor = 'white';
+
+          //login check
+          var lv = login.value;
+          for (var i = 0; i < lv.length; i++) {
+            if (lv.charCodeAt(i) > 0x29 && lv.charCodeAt(i) < 0x3A) {
+                login.style.backgroundColor = 'red';
+                break;
+            }
+          }
+
+          //password check
+          if (~pass.value.indexOf('$')) {
+            pass.style.backgroundColor = 'red';
+          }
+
+          //phone check
+          var phv = phone.value;
+          for (var j = 0; j < phv.length; j++) {
+            if (phv.charCodeAt(j) < 0x29 || phv.charCodeAt(j) > 0x3A) {
+              phone.style.backgroundColor = 'red';
+              break;
+            }
+          }
+
+        });
+        */
+
+        // С регулярными выражениями
+        btn.addEventListener('click', function () {
+
+          login.style.backgroundColor = 'white';
+          pass.style.backgroundColor = 'white';
+          phone.style.backgroundColor = 'white';
+
+          if(~login.value.search(/\d/)) {
+            login.style.backgroundColor = 'red';
+          }
+
+          if(~pass.value.search(/\$/)) {
+            pass.style.backgroundColor = 'red';
+          }
+
+          if(~phone.value.search(/\D/)) {
+            phone.style.backgroundColor = 'red';
+          }
+        });
+
+    </script>
+</body>
+</html>
